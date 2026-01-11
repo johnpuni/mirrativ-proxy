@@ -12,10 +12,16 @@ app.get("/", async (req, res) => {
   try {
     const r = await fetch(url, {
       headers: {
-        "User-Agent": "Mozilla/5.0",
-        "Accept": "*/*"
+        "User-Agent":
+          "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 " +
+          "(KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+        "Accept": "*/*",
+        "Accept-Language": "ja,en-US;q=0.9,en;q=0.8",
+        "Referer": "https://www.mirrativ.com/",
+        "Origin": "https://www.mirrativ.com"
       }
     })
+
     const text = await r.text()
     res.send(text)
   } catch (e) {
